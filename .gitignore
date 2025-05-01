@@ -1,0 +1,53 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Editor-specific
+.vscode/
+.idea/
+*.swp
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Python distribution / packaging
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Test / coverage
+.coverage
+.tox/
+.nox/
+.cache/
+pytest_cache/
+htmlcov/
+
+# Environment files
+.env
+.env.*
+
+# Wheel files
+*.whl
+
+# RNA evaluation output files
+# *.ct
+# *.bpp
+# *.fasta
+# *.out
+# *.err
+# *.tmp
+
+tmp
