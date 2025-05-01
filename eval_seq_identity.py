@@ -8,10 +8,19 @@ from utility import get_seq_from_file
 def read_sequence(input_str):
     """
     Determines if the input is a filepath or a raw sequence and returns the sequence string.
+    Supports plain sequence strings and single-sequence FASTA files.
     """
     if os.path.isfile(input_str):
-        _, seq = get_seq_from_file(input_str)
-        return seq
+        with open(input_str, 'r') as f:
+            lines = [line.strip() for line in f if line.strip()]
+            seq = []
+            for line in lines:
+                if line.startswith('>'):
+                    continue
+                seq.append(line)
+            if not seq:
+                raise ValueError(f"No sequence data found in file: {input_str}")
+            return ''.join(seq)
     assert set(input_str.upper()).issubset(set("AUCGT-")), f"Invalid sequence input: {input_str}"
     return input_str
 
@@ -31,10 +40,19 @@ def main():
     sequences = []
     if len(args.inputs) == 1 and os.path.isfile(args.inputs[0]):
         with open(args.inputs[0], 'r') as f:
+            current_seq = []
             for line in f:
                 line = line.strip()
-                if line and line[0] in set("AUCGT-"):
-                    sequences.append(line)
+                if not line:
+                    continue
+                if line.startswith('>'):
+                    if current_seq:
+                        sequences.append(''.join(current_seq))
+                        current_seq = []
+                else:
+                    current_seq.append(line)
+            if current_seq:
+                sequences.append(''.join(current_seq))
     else:
         sequences = [read_sequence(inp) for inp in args.inputs]
     if len(sequences) < 2:
