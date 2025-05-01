@@ -1,4 +1,4 @@
-# 🧬 RNA Evaluation Toolkit
+# RNA Evaluation Toolkit
 
 This repository provides Python scripts and utilities for analyzing RNA structure and alignment data. It includes tools for evaluating secondary structure similarity, ensemble defect from base pairing probabilities, and sequence identity in multiple sequence alignments. Supported input formats include dot-bracket notation, CT files, BPP matrices, and FASTA-based MSAs.
 
