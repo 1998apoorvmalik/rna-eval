@@ -230,7 +230,7 @@ This continues until all four pages are filled or no more pairs can be added.
 For the input file `./test_data/pk_struc_01.ct`, running:
 
 ```bash
-python3 ct2db.py ./test_data/pk_struc_01.ct -s
+./ct2db.py ./test_data/pk_struc_01.ct -s
 ```
 
 Produces:
