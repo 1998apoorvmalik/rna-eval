@@ -22,4 +22,5 @@ if [ ! -d "$ENV_DIR" ]; then
     echo "To activate the environment later, run: source $ENV_DIR/bin/activate"
 else
     echo "[INFO] Virtual environment already exists."
+    echo "To activate the environment later, run: source $ENV_DIR/bin/activate"
 fi
